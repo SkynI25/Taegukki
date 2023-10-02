@@ -1,0 +1,100 @@
+:root {
+    --blue: #0047a0;
+    --red: #cd2e3a;
+}
+
+body {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flag {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    position: relative;
+}
+
+.taeguek {
+    background: linear-gradient(var(--red) 50%, var(--blue) 0);
+    border-radius: 1in;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    rotate: 34deg;
+}
+
+.taeguek::before {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: var(--red);
+    border-radius: 1in;
+    margin: 25px 0;
+    box-shadow: 50px 0 var(--blue);
+}
+
+.trigrams {
+    position: absolute;
+    width: 80%;
+    height: 65%;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 60px;
+}
+
+.top,
+.bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sky,
+.water,
+.fire,
+.earth {
+    width: 50px;
+    display: grid;
+    gap: 5px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.brick {
+    background-color: black;
+}
+
+.sky {
+    grid-template-columns: 1fr;
+}
+
+.fire .brick:nth-child(3) {
+    grid-template-columns: 1fr;
+    grid-column: span 2;
+}
+
+.earth {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.earth .brick:first-child,
+.earth .brick:last-child {
+    grid-column: span 2;
+}
+
+.sky,
+.water {
+    transform: rotate(-45deg);
+}
+
+.fire,
+.earth {
+    transform: rotate(45deg);
+}
